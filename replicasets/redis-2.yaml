@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: "softputer/redis:3.2.0"
+          image: "softputer/kubernetes-redis-cluster-replicaset:3.2.0"
           command:
             - "redis-server"
           args:

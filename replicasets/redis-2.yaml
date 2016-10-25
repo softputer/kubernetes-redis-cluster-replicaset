@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: "hub.qingyuanos.com/admin/redis:qingyuan"
+          image: "softputer/redis:3.2.0"
           command:
             - "redis-server"
           args:

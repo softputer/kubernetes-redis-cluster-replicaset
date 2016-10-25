@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: "redis-5"
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+        name: "redis-5"
+    spec:
+      containers:
+        - name: redis
+          image: "hub.qingyuanos.com/admin/redis:qingyuan"
+          command:
+            - "redis-server"
+          args:
+            - "/etc/redis/redis.conf"
+            - "--protected-mode"
+            - "no"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+          ports:
+            - name: redis
+              containerPort: 6379
+              protocol: "TCP"
+            - name: cluster
+              containerPort: 16379
+              protocol: "TCP"
+          volumeMounts:
+            - name: "redis-data"
+              mountPath: "/var/lib/redis"
+      volumes:
+        - name: "redis-data"
+          emptyDir: {}

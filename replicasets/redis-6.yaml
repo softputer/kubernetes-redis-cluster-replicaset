@@ -10,9 +10,10 @@ spec:
         app: redis
         name: "redis-6"
     spec:
+      nodeName: 10.1.24.173
       containers:
         - name: redis
-          image: "softputer/kubernetes-redis-cluster-replicaset:3.2.0"
+          image: "10.1.24.90:5000/redis-cluster:3.2.0"
           command:
             - "redis-server"
           args:

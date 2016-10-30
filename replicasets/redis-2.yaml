@@ -10,9 +10,11 @@ spec:
         app: redis
         name: "redis-2"
     spec:
+      nodeName: node-01
+      hostNetwork: true
       containers:
         - name: redis
-          image: "softputer/kubernetes-redis-cluster-replicaset:3.2.0"
+          image: "index.alauda.cn/yjgai/redis:6380"
           command:
             - "redis-server"
           args:
